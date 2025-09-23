@@ -1,1 +1,198 @@
 /* Empty file for template. Remember to edit only this file and not the HTML file */
+:root {
+  animation: rotate 1s infinite;
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+@property --opacity {
+  syntax: "<number>";
+  initial-value: 0.5;
+  inherits: true;
+}
+
+@property --amount {
+    syntax: "<number>";
+    initial-value: 0px;
+    inherits: true;
+}
+
+@property --percentage {
+    syntax: "<number>";
+    initial-value: 0%;
+    inherits: true;
+}
+
+@property --1 {
+    syntax: "<color>";
+    initial-value: rgba(255, 0, 0, var(--opacity));
+    inherits: true;
+}
+
+@property --2 {
+    syntax: "<color>";
+    initial-value: rgba(255, 165, 0, var(--opacity));
+    inherits: true;
+}
+
+@property --3 {
+    syntax: "<color>";
+    initial-value: rgba(255, 255, 0, var(--opacity));
+    inherits: true;
+}
+
+@property --4 {
+    syntax: "<color>";
+    initial-value: rgba(0, 128, 0, var(--opacity));
+    inherits: true;
+}
+
+@property --5 {
+    syntax: "<color>";
+    initial-value: rgba(0, 0, 255, var(--opacity));
+    inherits: true;
+}
+
+@property --6 {
+    syntax: "<color>";
+    initial-value: rgba(128, 0, 128, var(--opacity));
+    inherits: true;
+}
+
+body {
+  background: linear-gradient(
+    calc(-1 * var(--rotate)),
+    rgba(255, 0, 0, var(--opacity)),
+    rgba(255, 165, 0, var(--opacity)),
+    rgba(255, 255, 0, var(--opacity)),
+    rgba(0, 128, 0, var(--opacity)),
+    rgba(0, 0, 255, var(--opacity)),
+    rgba(128, 0, 128, var(--opacity))
+  );
+  & .page-wrapper {
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(
+      var(--rotate),
+      rgba(255, 0, 0, var(--opacity)),
+      rgba(255, 165, 0, var(--opacity)),
+      rgba(255, 255, 0, var(--opacity)),
+      rgba(0, 128, 0, var(--opacity)),
+      rgba(0, 0, 255, var(--opacity)),
+      rgba(128, 0, 128, var(--opacity))
+    );
+    animation: pulsate 0.3s ease infinite alternate;
+    /* & * { */
+        /* font-weight: var(--amount); */
+    /* } */
+    /* margin: var(--amount); */
+    /* & * { */
+        /* margin: var(--amount); */
+        filter: blur(var(--amount)) hue-rotate(var(--rotate)) invert(var(--percentage));
+    /* } */
+    & * {
+        background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg');
+        background-size: var(--percentage) var(--percentage);
+        font-weight: bolder;
+        font-size: 1em;
+        text-decoration: var(--amount) underline blue;
+    }
+  }
+}
+
+@keyframes epilepsy_test {
+  from {
+    background: white;
+    color: black;
+  }
+  to {
+    background: black;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    --rotate: 0deg;
+  }
+  10% {
+    --rotate: 36deg;
+  }
+  20% {
+    --rotate: 72deg;
+  }
+  30% {
+    --rotate: 108deg;
+  }
+  40% {
+    --rotate: 144deg;
+  }
+  50% {
+    --rotate: 180deg;
+  }
+  60% {
+    --rotate: 216deg;
+  }
+  70% {
+    --rotate: 252deg;
+  }
+  80% {
+    --rotate: 288deg;
+  }
+  90% {
+    --rotate: 324deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+@keyframes pulsate {
+    0% {
+        --percentage: 0%;
+        --amount: 0px;
+    }
+    10% {
+        --percentage: 10%;
+        --amount: 1px;
+    }
+    20% {
+        --percentage: 20%;
+        --amount: 2px;
+    }
+    30% {
+        --percentage: 30%;
+        --amount: 3px;
+    }
+    40% {
+        --percentage: 40%;
+        --amount: 4px;
+    }
+    50% {
+        --percentage: 50%;
+        --amount: 5px;
+    }
+    60% {
+        --percentage: 60%;
+        --amount: 6px;
+    }
+    70% {
+        --percentage: 70%;
+        --amount: 7px;
+    }
+    80% {
+        --percentage: 80%;
+        --amount: 8px;
+    }
+    90% {
+        --percentage: 90%;
+        --amount: 9px;
+    }
+    100% {
+        --percentage: 100%;
+        --amount: 10px;
+    }
+}

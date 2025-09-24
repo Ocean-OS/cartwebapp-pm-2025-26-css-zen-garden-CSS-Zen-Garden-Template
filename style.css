@@ -43,6 +43,7 @@ body {
         rgba(0, 0, 255, var(--opacity)),
         rgba(128, 0, 128, var(--opacity))
     );
+    overflow-x: hidden;
     & .page-wrapper {
         width: 100vw;
         height: 100%;

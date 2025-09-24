@@ -167,13 +167,34 @@ body *:is(:empty, :only-child:not(div > * > *)) {
     background-size: 75%;
 }
 
+@keyframes left {
+    from {
+        transform: translateX(100%) translateY(100%);
+    }
+    to {
+        
+    }
+}
+
+@keyframes right {
+    from {
+        transform: translateX(-100%) translateY(100%);
+    }
+    to {
+        
+    }
+}
+
 body {
     animation: 1s ease infinite alternate pulsate;
     background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg')
         no-repeat;
     background-size: var(--percentage) var(--percentage);
     background-position: 50% 50%;
+    overflow-x: hidden;
+    margin: 10% 10%;
     & .page-wrapper {
+        border-radius: 50%;
         /* transform:rotate3d(0, 1, 0, var(--rotate)); */
         background: linear-gradient(
             var(--rotate),
@@ -208,9 +229,42 @@ body {
             }
             &:nth-of-type(even) {
                 transform: rotate3d(1, 5, 1, 45deg);
+                &:nth-of-type(1) {
+                    animation: left .3s infinite alternate;
+                }
+                &:nth-of-type(2) {
+                    animation: left 6s infinite alternate;
+                }
+                &:nth-of-type(3) {
+                    animation: left 9s infinite alternate;
+                }
+                &:nth-of-type(4) {
+                    animation: left 12s infinite alternate;
+                }
+                &:nth-of-type(5) {
+                    animation: left 15s infinite alternate;
+                }
+                &:nth-of-type(6) {
+                    animation: left 18s infinite alternate;
+                }
+                &:nth-of-type(7) {
+                    animation: left 21s infinite alternate;
+                }
             }
             &:nth-of-type(odd) {
                 transform: rotate3d(1, 5, 1, 315deg);
+                &:nth-of-type(1) {
+                    animation: right .3s infinite alternate;
+                }
+                &:nth-of-type(2) {
+                    animation: right 6s infinite alternate;
+                }
+                &:nth-of-type(3) {
+                    animation: right 9s infinite alternate;
+                }
+                &:nth-of-type(4) {
+                    animation: right 12s infinite alternate;
+                }
             }
         }
         /* & * {

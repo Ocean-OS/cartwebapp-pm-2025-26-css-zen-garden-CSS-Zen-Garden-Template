@@ -1,6 +1,7 @@
-/* Empty file for template. Remember to edit only this file and not the HTML file */
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 :root {
-    animation: rotate 1s infinite;
+    background: white;
+    animation: 4s infinite rotate;
 }
 
 @property --rotate {
@@ -33,8 +34,42 @@
     inherits: true;
 }
 
-body {
-    background: linear-gradient(
+div[role='presentation'] {
+    width: 100%;
+    max-height: 40vh;
+    min-height: 40vh;
+    &:nth-of-type(2) {
+        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/flames.gif');
+        background-size: 100% 100%;
+    }
+    &:nth-of-type(3) {
+        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge5.gif');
+        background-size: 100% 100%;
+    }
+    &:nth-of-type(4) {
+        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge1.gif');
+        background-size: 100% 100%;
+    }
+    &:nth-of-type(5) {
+        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge2.gif');
+        background-size: 100% 100%;
+    }
+    &:nth-of-type(6) {
+      background-image: url('http://toastytech.com/evil/ieburnbtn.gif');
+      background-size: 100% 100%;
+    }
+    &:last-of-type {
+      background-image: url('http://toastytech.com/evil/burnieani.gif');
+      background-size: 100% 100%;
+    }
+}
+
+body * {
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    /* &::target-text { */
+    background-image: linear-gradient(
         calc(-1 * var(--rotate)),
         rgba(255, 0, 0, var(--opacity)),
         rgba(255, 165, 0, var(--opacity)),
@@ -43,10 +78,58 @@ body {
         rgba(0, 0, 255, var(--opacity)),
         rgba(128, 0, 128, var(--opacity))
     );
-    overflow-x: hidden;
+    font-weight: bolder;
+    /* font-size: 1.1em; */
+    /* } */
+}
+
+*::selection {
+    background: maroon;
+    color: pink;
+}
+
+a:is(:link, :visited) {
+    animation: 0.1s epilepsy_test infinite;
+    &::before {
+        content: '👉';
+        font-size: 2em;
+    }
+    &::after {
+        content: '👈';
+        font-size: 2em;
+    }
+    &:hover {
+        color: transparent !important;
+        animation: none !important;
+        background: url('https://github.com/sindresorhus/sindresorhus/raw/main/hot.gif')
+            no-repeat;
+        background-position: 50% 50%;
+    }
+}
+
+*::first-letter {
+    font-family: 'Pinyon Script';
+}
+
+*::first-line {
+    font-size: 1.5em;
+}
+
+body *:is(:empty, :only-child:not(div > * > *)) {
+    background: url('https://github.com/sindresorhus/sindresorhus/raw/main/hot.gif')
+        no-repeat;
+    background-position: 50% 50%;
+    background-size: 75%;
+}
+
+body {
+    animation: 1s ease infinite alternate pulsate;
+    background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg')
+        no-repeat;
+    background-size: var(--percentage) var(--percentage);
+    background-position: 50% 50%;
     & .page-wrapper {
-        width: 100vw;
-        height: 100%;
+        /* transform:rotate3d(0, 1, 0, var(--rotate)); */
         background: linear-gradient(
             var(--rotate),
             rgba(255, 0, 0, var(--opacity)),
@@ -56,7 +139,6 @@ body {
             rgba(0, 0, 255, var(--opacity)),
             rgba(128, 0, 128, var(--opacity))
         );
-        animation: pulsate 0.3s ease infinite alternate;
         /* & * { */
         /* font-weight: var(--amount); */
         /* } */
@@ -72,11 +154,12 @@ body {
                 no-repeat var(--percentage) var(--percentage);
         }
         :is(& > :not(aside) > :is(section, div, header, p), & li) {
+            /* transform: translateZ(-100px); */
             &:not(li) {
-              padding: 10em 0em;
+                padding: 10em 0em;
             }
             &:is(li) {
-              padding: 8em 0em;
+                padding: 8em 0em;
             }
             &:nth-of-type(even) {
                 transform: rotate3d(1, 5, 1, 45deg);
@@ -85,27 +168,28 @@ body {
                 transform: rotate3d(1, 5, 1, 315deg);
             }
         }
-        & * {
+        /* & * {
             /* background-size: var(--percentage) var(--percentage); */
-            font-weight: bolder;
+        /* font-weight: bolder;
             font-size: 1em;
-            text-decoration: var(--amount) underline blue;
-            /* &:hover {
+            text-decoration: var(--amount) underline blue; */
+        /* &:hover {
         background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg');
         background-repeat: no-repeat;
         background-position: var(--percentage) var(--percentage);
       } */
-        }
+        /* } */
     }
 }
 
 @keyframes epilepsy_test {
     from {
-        background: white;
+        /* background: white; */
         color: black;
     }
     to {
-        background: black;
+        /* background: black; */
+        color: white;
     }
 }
 

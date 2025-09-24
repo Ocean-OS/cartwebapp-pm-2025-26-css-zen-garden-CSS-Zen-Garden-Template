@@ -55,12 +55,12 @@ div[role='presentation'] {
         background-size: 100% 100%;
     }
     &:nth-of-type(6) {
-      background-image: url('http://toastytech.com/evil/ieburnbtn.gif');
-      background-size: 100% 100%;
+        background-image: url('http://toastytech.com/evil/ieburnbtn.gif');
+        background-size: 100% 100%;
     }
     &:last-of-type {
-      background-image: url('http://toastytech.com/evil/burnieani.gif');
-      background-size: 100% 100%;
+        background-image: url('http://toastytech.com/evil/burnieani.gif');
+        background-size: 100% 100%;
     }
 }
 
@@ -89,13 +89,16 @@ body * {
 }
 
 a:is(:link, :visited) {
-    animation: 0.1s epilepsy_test infinite;
+    animation: 2s epilepsy_test infinite;
+    font-family: 'Pinyon Script';
     &::before {
         content: '👉';
+        animation: link_before 1s infinite alternate;
         font-size: 2em;
     }
     &::after {
         content: '👈';
+        animation: link_after 1s infinite alternate;
         font-size: 2em;
     }
     &:hover {
@@ -104,6 +107,48 @@ a:is(:link, :visited) {
         background: url('https://github.com/sindresorhus/sindresorhus/raw/main/hot.gif')
             no-repeat;
         background-position: 50% 50%;
+    }
+}
+
+@keyframes link_before {
+    0% {
+        content: '👉';
+    }
+    20% {
+        content: '👉🏻';
+    }
+    40% {
+        content: '👉🏼';
+    }
+    60% {
+        content: '👉🏽';
+    }
+    80% {
+        content: '👉🏾';
+    }
+    100% {
+        content: '👉🏿';
+    }
+}
+
+@keyframes link_after {
+    0% {
+        content: '👈';
+    }
+    20% {
+        content: '👈🏻';
+    }
+    40% {
+        content: '👈🏼';
+    }
+    60% {
+        content: '👈🏽';
+    }
+    80% {
+        content: '👈🏾';
+    }
+    100% {
+        content: '👈🏿';
     }
 }
 

@@ -1,198 +1,203 @@
 /* Empty file for template. Remember to edit only this file and not the HTML file */
 :root {
-  animation: rotate 1s infinite;
+    animation: rotate 1s infinite;
 }
 
 @property --rotate {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: true;
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: true;
 }
 
 @property --opacity {
-  syntax: "<number>";
-  initial-value: 0.5;
-  inherits: true;
+    syntax: '<number>';
+    initial-value: 0.5;
+    inherits: true;
 }
 
 @property --amount {
-    syntax: "<number>";
+    syntax: '<number>';
     initial-value: 0px;
     inherits: true;
 }
 
 @property --percentage {
-    syntax: "<number>";
+    syntax: '<number>';
     initial-value: 0%;
     inherits: true;
 }
 
-@property --1 {
-    syntax: "<color>";
-    initial-value: rgba(255, 0, 0, var(--opacity));
-    inherits: true;
-}
-
-@property --2 {
-    syntax: "<color>";
-    initial-value: rgba(255, 165, 0, var(--opacity));
-    inherits: true;
-}
-
-@property --3 {
-    syntax: "<color>";
-    initial-value: rgba(255, 255, 0, var(--opacity));
-    inherits: true;
-}
-
-@property --4 {
-    syntax: "<color>";
-    initial-value: rgba(0, 128, 0, var(--opacity));
-    inherits: true;
-}
-
-@property --5 {
-    syntax: "<color>";
-    initial-value: rgba(0, 0, 255, var(--opacity));
-    inherits: true;
-}
-
-@property --6 {
-    syntax: "<color>";
-    initial-value: rgba(128, 0, 128, var(--opacity));
+@property --number {
+    syntax: '<number>';
+    initial-value: 0;
     inherits: true;
 }
 
 body {
-  background: linear-gradient(
-    calc(-1 * var(--rotate)),
-    rgba(255, 0, 0, var(--opacity)),
-    rgba(255, 165, 0, var(--opacity)),
-    rgba(255, 255, 0, var(--opacity)),
-    rgba(0, 128, 0, var(--opacity)),
-    rgba(0, 0, 255, var(--opacity)),
-    rgba(128, 0, 128, var(--opacity))
-  );
-  & .page-wrapper {
-    width: 100vw;
-    height: 100%;
     background: linear-gradient(
-      var(--rotate),
-      rgba(255, 0, 0, var(--opacity)),
-      rgba(255, 165, 0, var(--opacity)),
-      rgba(255, 255, 0, var(--opacity)),
-      rgba(0, 128, 0, var(--opacity)),
-      rgba(0, 0, 255, var(--opacity)),
-      rgba(128, 0, 128, var(--opacity))
+        calc(-1 * var(--rotate)),
+        rgba(255, 0, 0, var(--opacity)),
+        rgba(255, 165, 0, var(--opacity)),
+        rgba(255, 255, 0, var(--opacity)),
+        rgba(0, 128, 0, var(--opacity)),
+        rgba(0, 0, 255, var(--opacity)),
+        rgba(128, 0, 128, var(--opacity))
     );
-    animation: pulsate 0.3s ease infinite alternate;
-    /* & * { */
+    & .page-wrapper {
+        width: 100vw;
+        height: 100%;
+        background: linear-gradient(
+            var(--rotate),
+            rgba(255, 0, 0, var(--opacity)),
+            rgba(255, 165, 0, var(--opacity)),
+            rgba(255, 255, 0, var(--opacity)),
+            rgba(0, 128, 0, var(--opacity)),
+            rgba(0, 0, 255, var(--opacity)),
+            rgba(128, 0, 128, var(--opacity))
+        );
+        animation: pulsate 0.3s ease infinite alternate;
+        /* & * { */
         /* font-weight: var(--amount); */
-    /* } */
-    /* margin: var(--amount); */
-    /* & * { */
+        /* } */
         /* margin: var(--amount); */
-        filter: blur(var(--amount)) hue-rotate(var(--rotate)) invert(var(--percentage));
-    /* } */
-    & * {
+        /* & * { */
+        /* margin: var(--amount); */
+        /* filter: blur(var(--amount)) hue-rotate(var(--rotate)) invert(var(--percentage)); */
+        /* } */
+        /* transform: rotate3d(1, 5, 1, 45deg); */
+        & > * {
+            background-position: var(--percentage) var(--percentage);
+            background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg')
+                no-repeat var(--percentage) var(--percentage);
+        }
+        :is(& > :not(aside) > :is(section, div, header, p), & li) {
+            &:not(li) {
+              padding: 10em 0em;
+            }
+            &:is(li) {
+              padding: 8em 0em;
+            }
+            &:nth-of-type(even) {
+                transform: rotate3d(1, 5, 1, 45deg);
+            }
+            &:nth-of-type(odd) {
+                transform: rotate3d(1, 5, 1, 315deg);
+            }
+        }
+        & * {
+            /* background-size: var(--percentage) var(--percentage); */
+            font-weight: bolder;
+            font-size: 1em;
+            text-decoration: var(--amount) underline blue;
+            /* &:hover {
         background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg');
-        background-size: var(--percentage) var(--percentage);
-        font-weight: bolder;
-        font-size: 1em;
-        text-decoration: var(--amount) underline blue;
+        background-repeat: no-repeat;
+        background-position: var(--percentage) var(--percentage);
+      } */
+        }
     }
-  }
 }
 
 @keyframes epilepsy_test {
-  from {
-    background: white;
-    color: black;
-  }
-  to {
-    background: black;
-  }
+    from {
+        background: white;
+        color: black;
+    }
+    to {
+        background: black;
+    }
 }
 
 @keyframes rotate {
-  0% {
-    --rotate: 0deg;
-  }
-  10% {
-    --rotate: 36deg;
-  }
-  20% {
-    --rotate: 72deg;
-  }
-  30% {
-    --rotate: 108deg;
-  }
-  40% {
-    --rotate: 144deg;
-  }
-  50% {
-    --rotate: 180deg;
-  }
-  60% {
-    --rotate: 216deg;
-  }
-  70% {
-    --rotate: 252deg;
-  }
-  80% {
-    --rotate: 288deg;
-  }
-  90% {
-    --rotate: 324deg;
-  }
-  100% {
-    --rotate: 360deg;
-  }
+    0% {
+        --rotate: 0deg;
+    }
+    10% {
+        --rotate: 36deg;
+    }
+    20% {
+        --rotate: 72deg;
+    }
+    30% {
+        --rotate: 108deg;
+    }
+    40% {
+        --rotate: 144deg;
+    }
+    50% {
+        --rotate: 180deg;
+    }
+    60% {
+        --rotate: 216deg;
+    }
+    70% {
+        --rotate: 252deg;
+    }
+    80% {
+        --rotate: 288deg;
+    }
+    90% {
+        --rotate: 324deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
 }
 
 @keyframes pulsate {
     0% {
         --percentage: 0%;
         --amount: 0px;
+        --number: 0;
     }
     10% {
         --percentage: 10%;
         --amount: 1px;
+        --number: 1;
     }
     20% {
         --percentage: 20%;
         --amount: 2px;
+        --number: 2;
     }
     30% {
         --percentage: 30%;
         --amount: 3px;
+        --number: 3;
     }
     40% {
         --percentage: 40%;
         --amount: 4px;
+        --number: 4;
     }
     50% {
         --percentage: 50%;
         --amount: 5px;
+        --number: 5;
     }
     60% {
         --percentage: 60%;
         --amount: 6px;
+        --number: 6;
     }
     70% {
         --percentage: 70%;
         --amount: 7px;
+        --number: 7;
     }
     80% {
         --percentage: 80%;
         --amount: 8px;
+        --number: 8;
     }
     90% {
         --percentage: 90%;
         --amount: 9px;
+        --number: 9;
     }
     100% {
         --percentage: 100%;
         --amount: 10px;
+        --number: 10;
     }
 }

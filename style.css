@@ -28,15 +28,29 @@
     }
 }
 
+::selection {
+    background: white;
+    color: black;
+}
+
 html {
     &[lang]::before {
         content: '<html lang="' attr(lang) '">';
         margin-left: 0.2em;
+        background: linear-gradient(
+                to right,
+                #aabbff 35%,
+                #aaffbb 35% 62%,
+                white 62% 70%,
+                orange 70% 95%,
+                #aabbff 95%
+            )
+            text;
     }
     &::after {
         content: '</html>';
     }
-    & > head {
+    & > :first-child {
         animation: head 5s ease forwards;
         display: block;
         margin-top: 0;
@@ -65,10 +79,30 @@ html {
             display: block;
             &[charset]::before {
                 content: '<meta charset="' attr(charset) '" />';
+                background: linear-gradient(
+                        to right,
+                        #aabbff 25%,
+                        #aaffbb 25% 55%,
+                        white 55% 59%,
+                        orange 59% 88%,
+                        #aabbff 88%
+                    )
+                    text;
             }
             &[name][content]::before {
                 content: '<meta name="' attr(name) '" content="' attr(content)
                     '" />';
+                &:first-of-type {
+                    background: linear-gradient(
+                        to right,
+                        #aabbff 25%,
+                        #aaffbb 25% 55%,
+                        white 55% 59%,
+                        orange 59% 88%,
+                        #aabbff 88%
+                    )
+                    text;
+                }
             }
         }
         & > link {
@@ -76,10 +110,259 @@ html {
             &[rel][media][href]::before {
                 content: '<link rel="' attr(rel) '" media="' attr(media)
                     '" href="' attr(href) '" />';
+                background: linear-gradient(
+                        to right,
+                        #aabbff 5%,
+                        #aaffbb 5% 9.5%,
+                        white 9.5% 10.5%,
+                        orange 10.5% 24%,
+                        #aaffbb 24% 29.5%,
+                        white 29.5% 30.5%,
+                        orange 30.5% 40%,
+                        #aabbff 40%,
+                        #aaffbb 40% 44.2%,
+                        white 44.2% 45.2%,
+                        orange 45.2% 98%,
+                        #aabbff 98%
+                    )
+                    text;
             }
             &[rel][type][title][href]::before {
                 content: '<link rel="' attr(rel) '" type="' attr(type)
                     '" title="' attr(title) '" href="' attr(href) '" />';
+                background: linear-gradient(
+                        to right,
+                        #aabbff 4.5%,
+                        #aaffbb 4.5% 7.9%,
+                        white 7.9% 8.85%,
+                        orange 8.85% 19%,
+                        #aaffbb 19% 23.3%,
+                        white 23.3% 24.3%,
+                        orange 24.3% 43%,
+                        #aaffbb 43% 48.2%,
+                        white 48.2% 49.2%,
+                        orange 49.2% 53.5%,
+                        #aabbff 53.5% 54%,
+                        #aaffbb 54% 58%,
+                        white 58% 59%,
+                        orange 59% 98%,
+                        #aabbff 98%
+                    )
+                    text;
+            }
+        }
+    }
+    & > :last-child {
+        background: black;
+        color: white;
+        &:not([id])::before {
+            content: '<body>';
+        }
+        /** selector originally from https://stackoverflow.com/a/53469166 */
+        &
+            *:not(a):not(b):not(label):not(form):not(abbr):not(legend):not(
+                address
+            ):not(link):not(area):not(mark):not(audio):not(meter):not(b):not(
+                cite
+            ):not(optgroup):not(code):not(option):not(del):not(q):not(
+                details
+            ):not(small):not(dfn):not(select):not(command):not(source):not(
+                datalist
+            ):not(span):not(em):not(strong):not(font):not(sub):not(i):not(
+                summary
+            ):not(iframe):not(sup):not(img):not(tbody):not(input):not(td):not(
+                ins
+            ):not(time):not(kbd):not(var) {
+            animation: shift 1.5s ease forwards;
+        }
+        &[id]::before {
+            content: '<body id="' attr(id) '">' !important;
+        }
+        &::after {
+            content: '</body>';
+        }
+        & p {
+            &:not([role])::before {
+                content: '<p>';
+            }
+            &[role]::before {
+                content: '<p role="' attr(role) '">' !important;
+            }
+            &::after {
+                content: '</p>';
+            }
+        }
+        & h4 {
+            &::before {
+                content: '<h4>';
+            }
+            &::after {
+                content: '</h4>';
+            }
+        }
+        & h3 {
+            &[class]::before {
+                content: '<h3 class="' attr(class) '">' !important;
+            }
+            &:not([class])::before {
+                content: '<h3>';
+            }
+            &::after {
+                content: '</h3>';
+            }
+        }
+        & div {
+            &:not([class][id][role])::before {
+                content: '<div>';
+            }
+            &[class][id]:not([role])::before {
+                content: '<div class="' attr(class) '" id="' attr(id) '">' !important;
+            }
+            &[class]:not([role][id])::before {
+                content: '<div class="' attr(class) '">' !important;
+            }
+            &[class][role]:not([id])::before {
+                content: '<div class="' attr(class) '" role="' attr(role) '">' !important;
+            }
+            &[class][id][role]::before {
+                content: '<div class="' attr(class) '" id="' attr(id) '" role="'
+                    attr(role) '">' !important;
+            }
+            &::after {
+                content: '</div>';
+            }
+        }
+        & ul {
+            &::before {
+                content: '<ul>';
+            }
+            &::after {
+                content: '</ul>';
+            }
+        }
+        & li {
+            list-style-type: none;
+            &[class]::before {
+                content: '<li class="' attr(class) '">' !important;
+            }
+            &:not([class])::before {
+                content: '<li>';
+            }
+            &::after {
+                content: '</li>';
+            }
+        }
+        & section {
+            &::before {
+                content: '<section>';
+            }
+            &::after {
+                content: '</section>';
+            }
+        }
+        & header {
+            &[role]::before {
+                content: '<header role="' attr(role) '">' !important;
+                background: linear-gradient(
+                        to right,
+                        #aabbff 35%,
+                        #aaffbb 35% 55%,
+                        white 55% 60%,
+                        orange 60% 95%,
+                        #aabbff 95%
+                    )
+                    text;
+            }
+            &:not([role])::before {
+                content: '<header>';
+            }
+            &::after {
+                content: '</header>';
+            }
+        }
+        & h1 {
+            &::before {
+                content: '<h1>';
+            }
+            &::after {
+                content: '</h1>';
+            }
+        }
+        & h2 {
+            &::before {
+                content: '<h2>';
+            }
+            &::after {
+                content: '</h2>';
+            }
+        }
+        & abbr {
+            &:not([title])::before {
+                content: '<abbr>';
+            }
+            &[title]::before {
+                content: '<abbr title="' attr(title) '">' !important;
+            }
+            &::after {
+                content: '</abbr>';
+                margin-right: 0.1rem;
+            }
+        }
+        & a {
+            &[href][title][class]::before {
+                content: '<a href="' attr(href) '" title="' attr(title)
+                    '" class="' attr(class) '">' !important;
+            }
+            &[href]:not([title][class])::before {
+                content: '<a href="' attr(href) '">' !important;
+            }
+            &[title]:not([href][class])::before {
+                content: '<a title="' attr(title) '">' !important;
+            }
+            &[class][href]:not([title])::before {
+                content: '<a href="' attr(href) '" class="' attr(class) '">' !important;
+            }
+            &[title][href]:not([class])::before {
+                content: '<a href="' attr(href) '" title="' attr(title) '">' !important;
+            }
+            &:not([href][title][class])::before {
+                content: '<a>';
+            }
+            &::after {
+                content: '</a>';
+            }
+        }
+        & nav {
+            &:not([role])::before {
+                content: '<nav>';
+            }
+            &[role]::before {
+                content: '<nav role="' attr(role) '">' !important;
+            }
+            &::after {
+                content: '</nav>';
+            }
+        }
+        & aside {
+            &:not([role][class])::before {
+                content: '<aside>';
+            }
+            &[role]:not([class])::before {
+                content: '<aside role="' attr(role) '">' !important;
+            }
+            &[role][class]::before {
+                content: '<aside class="' attr(class) '" role="' attr(role) '">' !important;
+            }
+            &::after {
+                content: '</aside>';
+            }
+        }
+        & footer {
+            &::before {
+                content: '<footer>';
+            }
+            &::after {
+                content: '</footer>';
             }
         }
     }
@@ -92,19 +375,23 @@ html {
     font-weight: normal;
     text-decoration: none !important;
     cursor: text;
+    font-size: 1rem;
+    background: #aabbff;
+    background-clip: text;
+    color: transparent;
 }
 
 @keyframes color {
     from {
         width: 0px !important;
         font-size: 0rem;
-        color: transparent;
+        /* color: transparent; */
     }
     50% {
         font-size: 1rem;
     }
     to {
-        color: #aabbff;
+        /* color: #aabbff; */
     }
 }
 
@@ -129,7 +416,7 @@ html {
 }
 
 * {
-    animation: weight 5s ease;
+    animation: weight 5s ease forwards;
 }
 
 @keyframes weight {
@@ -141,6 +428,7 @@ html {
         font-weight: normal;
     }
     to {
+        font-weight: 600;
     }
 }
 
@@ -161,211 +449,5 @@ abbr {
     }
     to {
         margin-left: 2rem;
-    }
-}
-
-body {
-    background: black;
-    color: white;
-    &:not([id])::before {
-        content: '<body>';
-    }
-    /** selector originally from https://stackoverflow.com/a/53469166 */
-    &
-        *:not(a):not(b):not(label):not(form):not(abbr):not(legend):not(
-            address
-        ):not(link):not(area):not(mark):not(audio):not(meter):not(b):not(
-            cite
-        ):not(optgroup):not(code):not(option):not(del):not(q):not(details):not(
-            small
-        ):not(dfn):not(select):not(command):not(source):not(datalist):not(
-            span
-        ):not(em):not(strong):not(font):not(sub):not(i):not(summary):not(
-            iframe
-        ):not(sup):not(img):not(tbody):not(input):not(td):not(ins):not(
-            time
-        ):not(kbd):not(var) {
-        animation: shift 1.5s ease forwards;
-    }
-    &[id]::before {
-        content: '<body id="' attr(id) '">' !important;
-    }
-    &::after {
-        content: '</body>';
-    }
-    & p {
-        &:not([role])::before {
-            content: '<p>';
-        }
-        &[role]::before {
-            content: '<p role="' attr(role) '">' !important;
-        }
-        &::after {
-            content: '</p>';
-        }
-    }
-    & h4 {
-        &::before {
-            content: '<h4>';
-        }
-        &::after {
-            content: '</h4>';
-        }
-    }
-    & h3 {
-        &[class]::before {
-            content: '<h3 class="' attr(class) '">' !important;
-        }
-        &:not([class])::before {
-            content: '<h3>';
-        }
-        &::after {
-            content: '</h3>';
-        }
-    }
-    & div {
-        &:not([class][id][role])::before {
-            content: '<div>';
-        }
-        &[class][id]:not([role])::before {
-            content: '<div class="' attr(class) '" id="' attr(id) '">' !important;
-        }
-        &[class]:not([role][id])::before {
-            content: '<div class="' attr(class) '">' !important;
-        }
-        &[class][role]:not([id])::before {
-            content: '<div class="' attr(class) '" role="' attr(role) '">' !important;
-        }
-        &[class][id][role]::before {
-            content: '<div class="' attr(class) '" id="' attr(id) '" role="'
-                attr(role) '">' !important;
-        }
-        &::after {
-            content: '</div>';
-        }
-    }
-    & ul {
-        &::before {
-            content: '<ul>';
-        }
-        &::after {
-            content: '</ul>';
-        }
-    }
-    & li {
-        list-style-type: none;
-        &[class]::before {
-            content: '<li class="' attr(class) '">' !important;
-        }
-        &:not([class])::before {
-            content: '<li>';
-        }
-        &::after {
-            content: '</li>';
-        }
-    }
-    & section {
-        &::before {
-            content: '<section>';
-        }
-        &::after {
-            content: '</section>';
-        }
-    }
-    & header {
-        &[role]::before {
-            content: '<header role="' attr(role) '">' !important;
-        }
-        &:not([role])::before {
-            content: '<header>';
-        }
-        &::after {
-            content: '</header>';
-        }
-    }
-    & h1 {
-        &::before {
-            content: '<h1>';
-        }
-        &::after {
-            content: '</h1>';
-        }
-    }
-    & h2 {
-        &::before {
-            content: '<h2>';
-        }
-        &::after {
-            content: '</h2>';
-        }
-    }
-    & abbr {
-        &:not([title])::before {
-            content: '<abbr>';
-        }
-        &[title]::before {
-            content: '<abbr title="' attr(title) '">' !important;
-        }
-        &::after {
-            content: '</abbr>';
-            margin-right: 0.1rem
-        }
-    }
-    & a {
-        &[href][title][class]::before {
-            content: '<a href="' attr(href) '" title="' attr(title) '" class="'
-                attr(class) '">' !important;
-        }
-        &[href]:not([title][class])::before {
-            content: '<a href="' attr(href) '">' !important;
-        }
-        &[title]:not([href][class])::before {
-            content: '<a title="' attr(title) '">' !important;
-        }
-        &[class][href]:not([title])::before {
-            content: '<a href="' attr(href) '" class="' attr(class) '">' !important;
-        }
-        &[title][href]:not([class])::before {
-            content: '<a href="' attr(href) '" title="' attr(title) '">' !important;
-        }
-        &:not([href][title][class])::before {
-            content: '<a>';
-        }
-        &::after {
-            content: '</a>';
-        }
-    }
-    & nav {
-        &:not([role])::before {
-            content: '<nav>';
-        }
-        &[role]::before {
-            content: '<nav role="' attr(role) '">' !important;
-        }
-        &::after {
-            content: '</nav>';
-        }
-    }
-    & aside {
-        &:not([role][class])::before {
-            content: '<aside>';
-        }
-        &[role]:not([class])::before {
-            content: '<aside role="' attr(role) '">' !important;
-        }
-        &[role][class]::before {
-            content: '<aside class="' attr(class) '" role="' attr(role) '">' !important;
-        }
-        &::after {
-            content: '</aside>';
-        }
-    }
-    & footer {
-        &::before {
-            content: '<footer>';
-        }
-        &::after {
-            content: '</footer>';
-        }
     }
 }

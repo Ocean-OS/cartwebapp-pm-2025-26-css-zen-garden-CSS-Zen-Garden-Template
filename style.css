@@ -4,6 +4,30 @@
     font-family: 'Geist Mono', monospace;
 }
 
+::-webkit-scrollbar {
+    background-color: #000a;
+    border-left: 0.05rem #444 solid;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #222;
+    border-radius: 0.2rem;
+    border-left: 0.05rem #444 solid;
+}
+
+::-webkit-scrollbar-button {
+    background-color: #444;
+    border-radius: 0.2rem;
+    &:first-of-type {
+        border-start-start-radius: 1rem;
+        border-start-end-radius: 1rem;
+    }
+    &:last-of-type {
+        border-end-start-radius: 1rem;
+        border-end-end-radius: 1rem;
+    }
+}
+
 html {
     &[lang]::before {
         content: '<html lang="' attr(lang) '">';
@@ -13,7 +37,7 @@ html {
         content: '</html>';
     }
     & > head {
-        animation: head 5s ease;
+        animation: head 5s ease forwards;
         display: block;
         margin-top: 0;
         margin-bottom: 0;
@@ -24,13 +48,12 @@ html {
             content: '</head>';
         }
         & > * {
-            animation: shift 5s ease;
-            margin-left: 2em;
+            animation: shift 5s ease forwards;
         }
         & > title {
             display: block;
+            animation: title, shift 5s ease forwards;
             color: white;
-            animation: title 5s ease;
             &::before {
                 content: '<title>';
             }
@@ -60,20 +83,14 @@ html {
             }
         }
     }
-    & > * {
-        animation: shift 5s ease;
-        margin-left: 2rem;
-    }
 }
 
 *::before,
 *::after {
-    animation: color 5s ease;
+    animation: color 5s ease forwards;
     font-style: normal;
     font-weight: normal;
     text-decoration: none !important;
-    font-size: 1rem;
-    color: #aabbff;
     cursor: text;
 }
 
@@ -94,9 +111,11 @@ html {
 @keyframes title {
     from {
         color: transparent;
+        font-size: 0rem;
     }
     to {
         color: white;
+        font-size: 1rem;
     }
 }
 
@@ -166,8 +185,7 @@ body {
         ):not(sup):not(img):not(tbody):not(input):not(td):not(ins):not(
             time
         ):not(kbd):not(var) {
-        animation: shift 1.5s ease;
-        margin-left: 2em;
+        animation: shift 1.5s ease forwards;
     }
     &[id]::before {
         content: '<body id="' attr(id) '">' !important;
@@ -290,6 +308,7 @@ body {
         }
         &::after {
             content: '</abbr>';
+            margin-right: 0.1rem
         }
     }
     & a {

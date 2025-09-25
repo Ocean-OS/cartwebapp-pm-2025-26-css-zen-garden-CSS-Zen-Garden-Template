@@ -6,7 +6,7 @@
 
 *::before,
 *::after {
-    animation: color 2s ease;
+    animation: color 1.5s ease;
     font-style: normal;
     font-weight: normal;
     text-decoration: none !important;
@@ -25,7 +25,7 @@
 }
 
 * {
-    animation: weight 2s ease;
+    animation: weight 1.5s ease;
 }
 
 @keyframes weight {

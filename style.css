@@ -38,7 +38,7 @@ body {
     }
     &[id]::before {
         content: '<body id="' attr(id) '">' !important;
-    }
+    } 
     &::after {
         content: '</body>';
     }

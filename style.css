@@ -4,9 +4,71 @@
     font-family: 'Geist Mono', monospace;
 }
 
+html {
+    &[lang]::before {
+        content: '<html lang="' attr(lang) '">';
+        margin-left: 0.2em;
+    }
+    &::after {
+        content: '</html>';
+    }
+    & > head {
+        animation: head 5s ease;
+        display: block;
+        margin-top: 0;
+        margin-bottom: 0;
+        &::before {
+            content: '<head>';
+        }
+        &::after {
+            content: '</head>';
+        }
+        & > * {
+            animation: shift 5s ease;
+            margin-left: 2em;
+        }
+        & > title {
+            display: block;
+            color: white;
+            animation: title 5s ease;
+            &::before {
+                content: '<title>';
+            }
+            &::after {
+                content: '</title>';
+            }
+        }
+        & > meta {
+            display: block;
+            &[charset]::before {
+                content: '<meta charset="' attr(charset) '" />';
+            }
+            &[name][content]::before {
+                content: '<meta name="' attr(name) '" content="' attr(content)
+                    '" />';
+            }
+        }
+        & > link {
+            display: block;
+            &[rel][media][href]::before {
+                content: '<link rel="' attr(rel) '" media="' attr(media)
+                    '" href="' attr(href) '" />';
+            }
+            &[rel][type][title][href]::before {
+                content: '<link rel="' attr(rel) '" type="' attr(type)
+                    '" title="' attr(title) '" href="' attr(href) '" />';
+            }
+        }
+    }
+    & > * {
+        animation: shift 5s ease;
+        margin-left: 2rem;
+    }
+}
+
 *::before,
 *::after {
-    animation: color 1.5s ease;
+    animation: color 5s ease;
     font-style: normal;
     font-weight: normal;
     text-decoration: none !important;
@@ -17,15 +79,38 @@
 
 @keyframes color {
     from {
-        color: white;
+        width: 0px !important;
+        font-size: 0rem;
+        color: transparent;
+    }
+    50% {
+        font-size: 1rem;
     }
     to {
         color: #aabbff;
     }
 }
 
+@keyframes title {
+    from {
+        color: transparent;
+    }
+    to {
+        color: white;
+    }
+}
+
+@keyframes head {
+    from {
+        font-size: 0rem;
+    }
+    to {
+        font-size: 1rem;
+    }
+}
+
 * {
-    animation: weight 1.5s ease;
+    animation: weight 5s ease;
 }
 
 @keyframes weight {
@@ -51,6 +136,15 @@ abbr {
     }
 }
 
+@keyframes shift {
+    from {
+        margin-left: 0rem;
+    }
+    to {
+        margin-left: 2rem;
+    }
+}
+
 body {
     background: black;
     color: white;
@@ -72,6 +166,7 @@ body {
         ):not(sup):not(img):not(tbody):not(input):not(td):not(ins):not(
             time
         ):not(kbd):not(var) {
+        animation: shift 1.5s ease;
         margin-left: 2em;
     }
     &[id]::before {

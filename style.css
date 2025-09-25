@@ -1,387 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
+
 :root {
-    background: white;
-    animation: 4s infinite rotate;
+    font-family: 'Geist Mono', monospace;
 }
 
-@property --rotate {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: true;
-}
-
-@property --opacity {
-    syntax: '<number>';
-    initial-value: 0.5;
-    inherits: true;
-}
-
-@property --amount {
-    syntax: '<number>';
-    initial-value: 0px;
-    inherits: true;
-}
-
-@property --percentage {
-    syntax: '<number>';
-    initial-value: 0%;
-    inherits: true;
-}
-
-@property --number {
-    syntax: '<number>';
-    initial-value: 0;
-    inherits: true;
-}
-
-div[role='presentation'] {
-    width: 100%;
-    max-height: 40vh;
-    min-height: 40vh;
-    &:nth-of-type(2) {
-        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/flames.gif');
-        background-size: 100% 100%;
-    }
-    &:nth-of-type(3) {
-        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge5.gif');
-        background-size: 100% 100%;
-    }
-    &:nth-of-type(4) {
-        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge1.gif');
-        background-size: 100% 100%;
-    }
-    &:nth-of-type(5) {
-        background-image: url('https://github.com/sindresorhus/sindresorhus/raw/main/badge2.gif');
-        background-size: 100% 100%;
-    }
-    &:nth-of-type(6) {
-        background-image: url('http://toastytech.com/evil/ieburnbtn.gif');
-        background-size: 100% 100%;
-    }
-    &:last-of-type {
-        background-image: url('http://toastytech.com/evil/burnieani.gif');
-        background-size: 100% 100%;
-    }
-}
-
-body * {
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
-    /* &::target-text { */
-    background-image: linear-gradient(
-        calc(-1 * var(--rotate)),
-        rgba(255, 0, 0, var(--opacity)),
-        rgba(255, 165, 0, var(--opacity)),
-        rgba(255, 255, 0, var(--opacity)),
-        rgba(0, 128, 0, var(--opacity)),
-        rgba(0, 0, 255, var(--opacity)),
-        rgba(128, 0, 128, var(--opacity))
-    );
-    font-weight: bolder;
-    /* font-size: 1.1em; */
-    /* } */
-}
-
-*::selection {
-    background: maroon;
-    color: pink;
-}
-
-a:is(:link, :visited) {
-    animation: 2s epilepsy_test infinite;
-    font-family: 'Pinyon Script';
-    &::before {
-        content: '👉';
-        animation: link_before 1s infinite alternate;
-        font-size: 2em;
-    }
-    &::after {
-        content: '👈';
-        animation: link_after 1s infinite alternate;
-        font-size: 2em;
-    }
-    &:hover {
-        color: transparent !important;
-        animation: none !important;
-        background: url('https://github.com/sindresorhus/sindresorhus/raw/main/hot.gif')
-            no-repeat;
-        background-position: 50% 50%;
-    }
-}
-
-@keyframes link_before {
-    0% {
-        content: '👉';
-    }
-    20% {
-        content: '👉🏻';
-    }
-    40% {
-        content: '👉🏼';
-    }
-    60% {
-        content: '👉🏽';
-    }
-    80% {
-        content: '👉🏾';
-    }
-    100% {
-        content: '👉🏿';
-    }
-}
-
-@keyframes link_after {
-    0% {
-        content: '👈';
-    }
-    20% {
-        content: '👈🏻';
-    }
-    40% {
-        content: '👈🏼';
-    }
-    60% {
-        content: '👈🏽';
-    }
-    80% {
-        content: '👈🏾';
-    }
-    100% {
-        content: '👈🏿';
-    }
-}
-
-*::first-letter {
-    font-family: 'Pinyon Script';
-}
-
-*::first-line {
-    font-size: 1.5em;
-}
-
-body *:is(:empty, :only-child:not(div > * > *)) {
-    background: url('https://github.com/sindresorhus/sindresorhus/raw/main/hot.gif')
-        no-repeat;
-    background-position: 50% 50%;
-    background-size: 75%;
-}
-
-@keyframes left {
-    from {
-        transform: translateX(100%) translateY(100%);
-    }
-    to {
-        
-    }
-}
-
-@keyframes right {
-    from {
-        transform: translateX(-100%) translateY(100%);
-    }
-    to {
-        
-    }
+*::before,
+*::after {
+    color: #aabbff;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none !important;
+    font-size: 1rem;
 }
 
 body {
-    animation: 1s ease infinite alternate pulsate;
-    background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg')
-        no-repeat;
-    background-size: var(--percentage) var(--percentage);
-    background-position: 50% 50%;
-    overflow-x: hidden;
-    margin: 10% 10%;
-    & .page-wrapper {
-        border-radius: 50%;
-        /* transform:rotate3d(0, 1, 0, var(--rotate)); */
-        background: linear-gradient(
-            var(--rotate),
-            rgba(255, 0, 0, var(--opacity)),
-            rgba(255, 165, 0, var(--opacity)),
-            rgba(255, 255, 0, var(--opacity)),
-            rgba(0, 128, 0, var(--opacity)),
-            rgba(0, 0, 255, var(--opacity)),
-            rgba(128, 0, 128, var(--opacity))
-        );
-        /* & * { */
-        /* font-weight: var(--amount); */
-        /* } */
-        /* margin: var(--amount); */
-        /* & * { */
-        /* margin: var(--amount); */
-        /* filter: blur(var(--amount)) hue-rotate(var(--rotate)) invert(var(--percentage)); */
-        /* } */
-        /* transform: rotate3d(1, 5, 1, 45deg); */
-        & > * {
-            background-position: var(--percentage) var(--percentage);
-            background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg')
-                no-repeat var(--percentage) var(--percentage);
+    background: black;
+    color: white;
+    &:not([id])::before {
+        content: '<body>';
+    }
+    /** selector taken from https://stackoverflow.com/a/53469166 */
+    &
+        *:not(a):not(b):not(label):not(form):not(abbr):not(legend):not(
+            address
+        ):not(link):not(area):not(mark):not(audio):not(meter):not(b):not(
+            nav
+        ):not(cite):not(optgroup):not(code):not(option):not(del):not(q):not(
+            details
+        ):not(small):not(dfn):not(select):not(command):not(source):not(
+            datalist
+        ):not(span):not(em):not(strong):not(font):not(sub):not(i):not(
+            summary
+        ):not(iframe):not(sup):not(img):not(tbody):not(input):not(td):not(
+            ins
+        ):not(time):not(kbd):not(var) {
+        margin-left: 2em;
+    }
+    &[id]::before {
+        content: '<body id="' attr(id) '">' !important;
+    }
+    &::after {
+        content: '</body>';
+    }
+    & p {
+        &:not([role])::before {
+            content: '<p>';
         }
-        :is(& > :not(aside) > :is(section, div, header, p), & li) {
-            /* transform: translateZ(-100px); */
-            &:not(li) {
-                padding: 10em 0em;
-            }
-            &:is(li) {
-                padding: 8em 0em;
-            }
-            &:nth-of-type(even) {
-                transform: rotate3d(1, 5, 1, 45deg);
-                &:nth-of-type(1) {
-                    animation: left .3s infinite alternate;
-                }
-                &:nth-of-type(2) {
-                    animation: left 6s infinite alternate;
-                }
-                &:nth-of-type(3) {
-                    animation: left 9s infinite alternate;
-                }
-                &:nth-of-type(4) {
-                    animation: left 12s infinite alternate;
-                }
-                &:nth-of-type(5) {
-                    animation: left 15s infinite alternate;
-                }
-                &:nth-of-type(6) {
-                    animation: left 18s infinite alternate;
-                }
-                &:nth-of-type(7) {
-                    animation: left 21s infinite alternate;
-                }
-            }
-            &:nth-of-type(odd) {
-                transform: rotate3d(1, 5, 1, 315deg);
-                &:nth-of-type(1) {
-                    animation: right .3s infinite alternate;
-                }
-                &:nth-of-type(2) {
-                    animation: right 6s infinite alternate;
-                }
-                &:nth-of-type(3) {
-                    animation: right 9s infinite alternate;
-                }
-                &:nth-of-type(4) {
-                    animation: right 12s infinite alternate;
-                }
-            }
+        &[role]::before {
+            content: '<p role="' attr(role) '">' !important;
         }
-        /* & * {
-            /* background-size: var(--percentage) var(--percentage); */
-        /* font-weight: bolder;
-            font-size: 1em;
-            text-decoration: var(--amount) underline blue; */
-        /* &:hover {
-        background: url('https://www.ikea.com/global/assets/logos/brand/ikea.svg');
-        background-repeat: no-repeat;
-        background-position: var(--percentage) var(--percentage);
-      } */
-        /* } */
+        &::after {
+            content: '</p>';
+        }
     }
-}
-
-@keyframes epilepsy_test {
-    from {
-        /* background: white; */
-        color: black;
+    & h4 {
+        &::before {
+            content: '<h4>';
+        }
+        &::after {
+            content: '</h4>';
+        }
     }
-    to {
-        /* background: black; */
-        color: white;
+    & h3 {
+        &[class]::before {
+            content: '<h3 class="' attr(class) '">' !important;
+        }
+        &:not([class])::before {
+            content: '<h3>';
+        }
+        &::after {
+            content: '</h3>';
+        }
     }
-}
-
-@keyframes rotate {
-    0% {
-        --rotate: 0deg;
+    & div {
+        &:not([class][id][role])::before {
+            content: '<div>';
+        }
+        &[class][id]:not([role])::before {
+            content: '<div class="' attr(class) '" id="' attr(id) '">' !important;
+        }
+        &[class]:not([role][id])::before {
+            content: '<div class="' attr(class) '">' !important;
+        }
+        &[class][role]:not([id])::before {
+            content: '<div class="' attr(class) '" role="' attr(role) '">' !important;
+        }
+        &[class][id][role]::before {
+            content: '<div class="' attr(class) '" id="' attr(id) '" role="'
+                attr(role) '">' !important;
+        }
+        &::after {
+            content: '</div>';
+        }
     }
-    10% {
-        --rotate: 36deg;
+    & ul {
+        &::before {
+            content: '<ul>';
+        }
+        &::after {
+            content: '</ul>';
+        }
     }
-    20% {
-        --rotate: 72deg;
+    & li {
+        &[class]::before {
+            content: '<li class="' attr(class) '">' !important;
+        }
+        &:not([class])::before {
+            content: '<li>';
+        }
+        &::after {
+            content: '</li>';
+        }
     }
-    30% {
-        --rotate: 108deg;
+    & section {
+        &::before {
+            content: '<section>';
+        }
+        &::after {
+            content: '</section>';
+        }
     }
-    40% {
-        --rotate: 144deg;
+    & header {
+        &[role]::before {
+            content: '<header role="' attr(role) '">' !important;
+        }
+        &:not([role])::before {
+            content: '<header>';
+        }
+        &::after {
+            content: '</header>';
+        }
     }
-    50% {
-        --rotate: 180deg;
+    & h1 {
+        &::before {
+            content: '<h1>';
+        }
+        &::after {
+            content: '</h1>';
+        }
     }
-    60% {
-        --rotate: 216deg;
+    & h2 {
+        &::before {
+            content: '<h2>';
+        }
+        &::after {
+            content: '</h2>';
+        }
     }
-    70% {
-        --rotate: 252deg;
+    & abbr {
+        &:not([title])::before {
+            content: '<abbr>';
+        }
+        &[title]::before {
+            content: '<abbr title="' attr(title) '">' !important;
+        }
+        &::after {
+            content: '</abbr>';
+        }
     }
-    80% {
-        --rotate: 288deg;
+    & a {
+        &[href][title][class]::before {
+            content: '<a href="' attr(href) '" title="' attr(title) '" class="'
+                attr(class) '">' !important;
+        }
+        &[href]:not([title][class])::before {
+            content: '<a href="' attr(href) '">' !important;
+        }
+        &[title]:not([href][class])::before {
+            content: '<a title="' attr(title) '">' !important;
+        }
+        &[class][href]:not([title])::before {
+            content: '<a href="' attr(href) '" class="' attr(class) '">' !important;
+        }
+        &[title][href]:not([class])::before {
+            content: '<a href="' attr(href) '" title="' attr(title) '">' !important;
+        }
+        &:not([href][title][class])::before {
+            content: '<a>';
+        }
+        &::after {
+            content: '</a>';
+        }
     }
-    90% {
-        --rotate: 324deg;
+    & nav {
+        &:not([role])::before {
+            content: '<nav>';
+        }
+        &[role]::before {
+            content: '<nav role="' attr(role) '">' !important;
+        }
+        &::after {
+            content: '</nav>';
+        }
     }
-    100% {
-        --rotate: 360deg;
+    & aside {
+        &:not([role][class])::before {
+            content: '<aside>';
+        }
+        &[role]:not([class])::before {
+            content: '<aside role="' attr(role) '">' !important;
+        }
+        &[role][class]::before {
+            content: '<aside class="' attr(class) '" role="' attr(role) '">' !important;
+        }
+        &::after {
+            content: '</aside>';
+        }
     }
-}
-
-@keyframes pulsate {
-    0% {
-        --percentage: 0%;
-        --amount: 0px;
-        --number: 0;
-    }
-    10% {
-        --percentage: 10%;
-        --amount: 1px;
-        --number: 1;
-    }
-    20% {
-        --percentage: 20%;
-        --amount: 2px;
-        --number: 2;
-    }
-    30% {
-        --percentage: 30%;
-        --amount: 3px;
-        --number: 3;
-    }
-    40% {
-        --percentage: 40%;
-        --amount: 4px;
-        --number: 4;
-    }
-    50% {
-        --percentage: 50%;
-        --amount: 5px;
-        --number: 5;
-    }
-    60% {
-        --percentage: 60%;
-        --amount: 6px;
-        --number: 6;
-    }
-    70% {
-        --percentage: 70%;
-        --amount: 7px;
-        --number: 7;
-    }
-    80% {
-        --percentage: 80%;
-        --amount: 8px;
-        --number: 8;
-    }
-    90% {
-        --percentage: 90%;
-        --amount: 9px;
-        --number: 9;
-    }
-    100% {
-        --percentage: 100%;
-        --amount: 10px;
-        --number: 10;
+    & footer {
+        &::before {
+            content: '<footer>';
+        }
+        &::after {
+            content: '</footer>';
+        }
     }
 }

@@ -370,13 +370,79 @@ html {
             }
         }
         & abbr {
-            header &::before {
+            &[title^='Cascading'][title$='Sheets']::before {
                 background: linear-gradient(
                         to right,
                         #aabbff 15%,
                         #aaffbb 15% 30%,
                         white 30% 32.1%,
                         orange 32.1% 97.5%,
+                        #aabbff 97.5%
+                    )
+                    text;
+            }
+            &[title^='Cascading'][title*='levels']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 10%,
+                        #aaffbb 10% 21%,
+                        white 21% 22.5%,
+                        orange 22.5% 98%,
+                        #aabbff 98%
+                    )
+                    text;
+            }
+            &[title^='HyperText']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 27.5%,
+                        white 27.5% 30%,
+                        orange 30% 97.5%,
+                        #aabbff 97.5%
+                    )
+                    text;
+            }
+            &[title^='Document']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 30.5%,
+                        white 30.5% 32.9%,
+                        orange 32.9% 97.5%,
+                        #aabbff 97.5%
+                    )
+                    text;
+            }
+            &[title^='Web']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 30.5%,
+                        white 30.5% 32.9%,
+                        orange 32.9% 97.5%,
+                        #aabbff 97.5%
+                    )
+                    text;
+            }
+            &[title^='World']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 27.8%,
+                        white 27.8% 29.6%,
+                        orange 29.6% 97.5%,
+                        #aabbff 97.5%
+                    )
+                    text;
+            }
+            &[title^='F']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 14%,
+                        #aaffbb 14% 27%,
+                        white 27% 29%,
+                        orange 29% 97.5%,
                         #aabbff 97.5%
                     )
                     text;
@@ -408,6 +474,21 @@ html {
             }
             &[title][href]:not([class])::before {
                 content: '<a href="' attr(href) '" title="' attr(title) '">' !important;
+            }
+            &.design-name::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 5%,
+                        #aaffbb 5% 19.8%,
+                        white 19.8% 21.8%,
+                        orange 21.8% 42%,
+                        #aabbff 42% 44%,
+                        #aaffbb 44% 58%,
+                        white 58% 61%,
+                        orange 61% 97%,
+                        #aabbff 97%
+                    )
+                    text;
             }
             &:not([href][title][class])::before {
                 content: '<a>';
@@ -463,6 +544,7 @@ html {
     background: #aabbff;
     background-clip: text;
     color: transparent;
+    text-wrap-mode: nowrap;
 }
 
 @keyframes color {

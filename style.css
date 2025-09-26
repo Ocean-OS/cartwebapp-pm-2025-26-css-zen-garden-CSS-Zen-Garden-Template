@@ -34,6 +34,9 @@
 }
 
 html {
+    & title::first-line {
+        font-weight: 600 !important;
+    }
     &[lang]::before {
         content: '<html lang="' attr(lang) '">';
         margin-left: 0.2em;
@@ -277,13 +280,37 @@ html {
             body > &:first-of-type:before {
                 background: linear-gradient(
                         to right,
-                        #aabbff 10%,
-                        #aaffbb 20% 39%,
+                        #aabbff 15%,
+                        #aaffbb 15% 39%,
                         white 39% 42.5%,
                         orange 42.5% 96%,
                         #aabbff 96%
                     )
                     text;
+            }
+            &.zen-resources {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 15%,
+                            #aaffbb 15% 37%,
+                            white 37% 41%,
+                            orange 41% 96%,
+                            #aabbff 96%
+                        )
+                        text;
+                }
+                & h3.resources::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 15%,
+                            #aaffbb 15% 41.5%,
+                            white 41.5% 44.8%,
+                            orange 44.8% 96%,
+                            #aabbff 96%
+                        )
+                        text;
+                }
             }
             &:not([class][id][role])::before {
                 content: '<div>';

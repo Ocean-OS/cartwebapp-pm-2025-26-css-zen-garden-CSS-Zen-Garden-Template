@@ -67,7 +67,7 @@ html {
         & > * {
             animation: shift 5s ease forwards;
         }
-        & > title {
+        & > title:only-of-type {
             display: block;
             animation: title, shift 5s ease forwards;
             color: white;
@@ -312,6 +312,78 @@ html {
                         text;
                 }
             }
+            &#zen-summary {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 9%,
+                            #aaffbb 9% 19%,
+                            white 19% 21%,
+                            orange 21% 38%,
+                            #aabbff 38% 39%,
+                            #aaffbb 39% 43.3%,
+                            white 43.3% 45%,
+                            orange 45% 70%,
+                            #aabbff 70% 71.9%,
+                            #aaffbb 71.9% 79.1%,
+                            white 79.1% 81.5%,
+                            orange 81.5% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & a {
+                    &:first-of-type:before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 3%,
+                                #aaffbb 3% 8.2%,
+                                white 8.2% 9.5%,
+                                orange 9.5% 30%,
+                                #aabbff 30% 31%,
+                                #aaffbb 31% 37%,
+                                white 37% 38%,
+                                orange 38% 98.9%,
+                                #aabbff 98.9%
+                            )
+                            text;
+                    }
+                    &:last-of-type:before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 3%,
+                                #aaffbb 3% 8.2%,
+                                white 8.2% 9.5%,
+                                orange 9.5% 33%,
+                                #aabbff 33% 34%,
+                                #aaffbb 34% 40.3%,
+                                white 40.3% 41.6%,
+                                orange 41.6% 98.9%,
+                                #aabbff 98.9%
+                            )
+                            text;
+                    }
+                }
+            }
+            &#zen-preamble::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 9%,
+                        #aaffbb 9% 18%,
+                        white 18% 20%,
+                        orange 20% 38%,
+                        #aabbff 38% 39%,
+                        #aaffbb 39% 43.3%,
+                        white 43.3% 45.2%,
+                        orange 45.2% 71%,
+                        #aabbff 71% 71.5%,
+                        #aaffbb 71.5% 80.3%,
+                        white 80.3% 81.5%,
+                        orange 81.5% 98%,
+                        #aabbff 98%
+                    )
+                    text;
+            }
             &:not([class][id][role])::before {
                 content: '<div>';
             }
@@ -419,7 +491,7 @@ html {
                     )
                     text;
             }
-            &[title^='HyperText']::before {
+            &[title~='HyperText']::before {
                 background: linear-gradient(
                         to right,
                         #aabbff 15%,
@@ -430,7 +502,7 @@ html {
                     )
                     text;
             }
-            &[title^='Document']::before {
+            &[title='Document Object Model']::before {
                 background: linear-gradient(
                         to right,
                         #aabbff 15%,
@@ -463,7 +535,7 @@ html {
                     )
                     text;
             }
-            &[title^='F']::before {
+            &[title|='Frequently Asked Questions']::before {
                 background: linear-gradient(
                         to right,
                         #aabbff 14%,
@@ -578,13 +650,11 @@ html {
     from {
         width: 0px !important;
         font-size: 0rem;
-        /* color: transparent; */
     }
     50% {
         font-size: 1rem;
     }
     to {
-        /* color: #aabbff; */
     }
 }
 
@@ -633,6 +703,9 @@ abbr {
     transition: text-decoration-color 0.3s ease;
     &:hover {
         text-decoration-color: white;
+    }
+    &:active {
+        text-decoration-color: #5577ff !important;
     }
 }
 

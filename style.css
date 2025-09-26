@@ -480,6 +480,61 @@ html {
             &::after {
                 content: '</li>';
             }
+            &.view-css::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 19%,
+                        #aaffbb 19% 42.5%,
+                        white 42.5% 49%,
+                        orange 49% 94.5%,
+                        #aabbff 94.5%
+                    )
+                    text;
+            }
+            &.zen-faq::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 19%,
+                        #aaffbb 19% 44.5%,
+                        white 44.5% 49.4%,
+                        orange 49.4% 94.5%,
+                        #aabbff 94.5%
+                    )
+                    text;
+            }
+            &.css-resources::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 35%,
+                        white 35% 38%,
+                        orange 38% 96%,
+                        #aabbff 96%
+                    )
+                    text;
+            }
+            &.zen-submit::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 39.8%,
+                        white 39.8% 43%,
+                        orange 43% 96%,
+                        #aabbff 96%
+                    )
+                    text;
+            }
+            &.zen-translations::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 12%,
+                        #aaffbb 12% 31.5%,
+                        white 31.5% 35%,
+                        orange 35% 96%,
+                        #aabbff 96%
+                    )
+                    text;
+            }
         }
         & section {
             &::before {
@@ -703,6 +758,31 @@ html {
             }
             &::after {
                 content: '</nav>';
+            }
+            &:last-of-type :only-child li {
+                &.next::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 20%,
+                            #aaffbb 20% 53.8%,
+                            white 53.8% 60%,
+                            orange 60% 94.5%,
+                            #aabbff 94.5%
+                        )
+                        text;
+                }
+
+                &.viewall::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 20%,
+                            #aaffbb 20% 45%,
+                            white 45% 50%,
+                            orange 50% 94.5%,
+                            #aabbff 94.5%
+                        )
+                        text;
+                }
             }
         }
         & aside {

@@ -16,16 +16,12 @@
 }
 
 ::-webkit-scrollbar-button {
+    height: 0rem;
+    width: 0rem;
+}
+
+::-webkit-scrollbar-corner {
     background-color: #444;
-    border-radius: 0.2rem;
-    &:first-of-type {
-        border-start-start-radius: 1rem;
-        border-start-end-radius: 1rem;
-    }
-    &:last-of-type {
-        border-end-start-radius: 1rem;
-        border-end-end-radius: 1rem;
-    }
 }
 
 ::selection {

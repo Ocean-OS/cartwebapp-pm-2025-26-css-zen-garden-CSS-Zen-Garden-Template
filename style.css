@@ -1,34 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
-
 :root {
     font-family: 'Geist Mono', monospace;
 }
-
 ::-webkit-scrollbar {
     background-color: #000a;
     border-left: 0.05rem #444 solid;
 }
-
 ::-webkit-scrollbar-thumb {
     background-color: #222;
     border-radius: 0.2rem;
     border-left: 0.05rem #444 solid;
 }
-
 ::-webkit-scrollbar-button {
     height: 0rem;
     width: 0rem;
 }
-
 ::-webkit-scrollbar-corner {
     background-color: #444;
 }
-
 ::selection {
     background: white;
     color: black;
 }
-
 html {
     & title::first-line {
         font-weight: 600 !important;
@@ -94,7 +87,6 @@ html {
                         attr(content) '" />';
                 }
             }
-
             &:nth-of-type(2):before {
                 background: linear-gradient(
                         to right,
@@ -158,8 +150,7 @@ html {
         & > link {
             display: block;
             &[rel][media][href]::before {
-                /** ideally we could use `attr(href)` here, 
-                but it being inconsistent messes with syntax highlighting */
+                /** ideally we could use `attr(href)` here, but it being inconsistent messes with syntax highlighting */
                 content: '<link rel="' attr(rel) '" media="' attr(media)
                     '" href="' 'style.css' '" />';
                 background: linear-gradient(
@@ -209,37 +200,8 @@ html {
         color: white;
         &:not([id])::before {
             content: '<body>';
-        }
-        /** selector originally from https://stackoverflow.com/a/53469166 */
-        &
-            *:not(
-                :is(
-                        a,
-                        b,
-                        abbr,
-                        legend,
-                        address,
-                        link,
-                        mark,
-                        cite,
-                        del,
-                        q,
-                        small,
-                        dfn,
-                        command,
-                        source,
-                        datalist,
-                        span,
-                        em,
-                        strong,
-                        sub,
-                        i,
-                        sup,
-                        tbody,
-                        td,
-
-                    )
-            ) {
+        } /** selector originally from https://stackoverflow.com/a/53469166 */
+        &*:not(:is(a, b, abbr, link, del, span, em, strong, sub, i)) {
             animation: shift 1.5s ease forwards;
         }
         &[id]::before {
@@ -340,6 +302,30 @@ html {
                         text;
                 }
             }
+            &.design-archives {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 15%,
+                            #aaffbb 15% 35%,
+                            white 35% 38.5%,
+                            orange 38.5% 96%,
+                            #aabbff 96%
+                        )
+                        text;
+                }
+                & > h3::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 15%,
+                            #aaffbb 15% 42.1%,
+                            white 42.1% 48.5%,
+                            orange 48.5% 95%,
+                            #aabbff 95%
+                        )
+                        text;
+                }
+            }
             &#zen-summary {
                 &::before {
                     background: linear-gradient(
@@ -420,24 +406,64 @@ html {
                             )
                             text;
                     }
-                    & ~ .participation::before {
-                        background: linear-gradient(
-                                to right,
-                                #aabbff 8%,
-                                #aaffbb 8% 15.2%,
-                                white 15.2% 17.2%,
-                                orange 17.2% 40%,
-                                #aabbff 40% 41%,
-                                #aaffbb 41% 44.5%,
-                                white 44.5% 46%,
-                                orange 46% 75%,
-                                #aabbff 75% 76%,
-                                #aaffbb 76% 83%,
-                                white 83% 84.5%,
-                                orange 84.5% 98%,
-                                #aabbff 98%
-                            )
-                            text;
+                    & ~ .participation {
+                        &::before {
+                            background: linear-gradient(
+                                    to right,
+                                    #aabbff 8%,
+                                    #aaffbb 8% 15.2%,
+                                    white 15.2% 17.2%,
+                                    orange 17.2% 40%,
+                                    #aabbff 40% 41%,
+                                    #aaffbb 41% 44.5%,
+                                    white 44.5% 46%,
+                                    orange 46% 75%,
+                                    #aabbff 75% 76%,
+                                    #aaffbb 76% 83%,
+                                    white 83% 84.5%,
+                                    orange 84.5% 98%,
+                                    #aabbff 98%
+                                )
+                                text;
+                        }
+                        & + .benefits::before {
+                            background: linear-gradient(
+                                    to right,
+                                    #aabbff 8%,
+                                    #aaffbb 8% 18%,
+                                    white 18% 20.5%,
+                                    orange 20.5% 39%,
+                                    #aabbff 39% 40%,
+                                    #aaffbb 40% 43.9%,
+                                    white 43.9% 46%,
+                                    orange 46% 70.5%,
+                                    #aabbff 70.5% 73%,
+                                    #aaffbb 73% 80%,
+                                    white 80% 81.5%,
+                                    orange 81.5% 98%,
+                                    #aabbff 98%
+                                )
+                                text;
+                        }
+                        & ~ .requirements::before {
+                            background: linear-gradient(
+                                    to right,
+                                    #aabbff 8%,
+                                    #aaffbb 8% 15.7%,
+                                    white 15.7% 17.2%,
+                                    orange 17.2% 40%,
+                                    #aabbff 40% 41%,
+                                    #aaffbb 41% 44.5%,
+                                    white 44.5% 46%,
+                                    orange 46% 75%,
+                                    #aabbff 75% 76%,
+                                    #aaffbb 76% 82.6%,
+                                    white 82.6% 84.5%,
+                                    orange 84.5% 98%,
+                                    #aabbff 98%
+                                )
+                                text;
+                        }
                     }
                 }
             }
@@ -759,7 +785,7 @@ html {
             &::after {
                 content: '</nav>';
             }
-            &:last-of-type :only-child li {
+            &:last-of-type > :only-child > li {
                 &.next::before {
                     background: linear-gradient(
                             to right,
@@ -771,7 +797,6 @@ html {
                         )
                         text;
                 }
-
                 &.viewall::before {
                     background: linear-gradient(
                             to right,
@@ -827,7 +852,6 @@ html {
         }
     }
 }
-
 *::before,
 *::after {
     animation: color 5s ease forwards;
@@ -841,7 +865,6 @@ html {
     color: transparent;
     text-wrap-mode: nowrap;
 }
-
 @keyframes color {
     from {
         width: 0px !important;
@@ -853,7 +876,6 @@ html {
     to {
     }
 }
-
 @keyframes title {
     from {
         color: transparent;
@@ -864,7 +886,6 @@ html {
         font-size: 1rem;
     }
 }
-
 @keyframes head {
     from {
         font-size: 0rem;
@@ -873,11 +894,9 @@ html {
         font-size: 1rem;
     }
 }
-
 * {
     animation: weight 5s ease forwards;
 }
-
 @keyframes weight {
     from {
         font-size: 1rem;
@@ -890,7 +909,6 @@ html {
         font-weight: 600;
     }
 }
-
 :link,
 :visited,
 abbr {
@@ -904,7 +922,6 @@ abbr {
         text-decoration-color: #5577ff !important;
     }
 }
-
 @keyframes shift {
     from {
         margin-left: 0rem;

@@ -78,7 +78,7 @@ html {
                 content: '</title>';
             }
         }
-        & > meta {
+        & > meta:empty {
             display: block;
             &[charset]::before {
                 content: '<meta charset="' attr(charset) '" />';
@@ -277,16 +277,33 @@ html {
             }
         }
         & div {
-            body > &:first-of-type:before {
-                background: linear-gradient(
-                        to right,
-                        #aabbff 15%,
-                        #aaffbb 15% 39%,
-                        white 39% 42.5%,
-                        orange 42.5% 96%,
-                        #aabbff 96%
-                    )
-                    text;
+            body > & {
+                &:first-of-type:before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 15%,
+                            #aaffbb 15% 39%,
+                            white 39% 42.5%,
+                            orange 42.5% 96%,
+                            #aabbff 96%
+                        )
+                        text;
+                }
+                &[role='presentation']::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 10%,
+                            #aaffbb 10% 25%,
+                            white 25% 27.2%,
+                            orange 27.2% 49%,
+                            #aabbff 49% 50%,
+                            #aaffbb 50% 60.3%,
+                            white 60.3% 62.2%,
+                            orange 62.2% 97.5%,
+                            #aabbff 97.5%
+                        )
+                        text;
+                }
             }
             &.zen-resources {
                 &::before {
@@ -589,6 +606,17 @@ html {
                     )
                     text;
             }
+            &[href$='guidelines/']::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 4%,
+                        #aaffbb 4% 11%,
+                        white 11% 12.9%,
+                        orange 12.9% 98%,
+                        #aabbff 98%
+                    )
+                    text;
+            }
             &:not([href][title][class])::before {
                 content: '<a>';
             }
@@ -608,17 +636,35 @@ html {
             }
         }
         & aside {
-            &:not([role][class])::before {
-                content: '<aside>';
-            }
-            &[role]:not([class])::before {
-                content: '<aside role="' attr(role) '">' !important;
-            }
             &[role][class]::before {
-                content: '<aside class="' attr(class) '" role="' attr(role) '">' !important;
+                content: '<aside class="' attr(class) '" role="' attr(role) '">';
+                background: linear-gradient(
+                        to right,
+                        #aabbff 15%,
+                        #aaffbb 15% 27.5%,
+                        white 27.5% 29.2%,
+                        orange 29.2% 50%,
+                        #aabbff 50% 52%,
+                        #aaffbb 52% 61.3%,
+                        white 61.3% 63.6%,
+                        orange 63.6% 98%,
+                        #aabbff 98%
+                    )
+                    text;
             }
             &::after {
                 content: '</aside>';
+            }
+            & nav::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 22%,
+                        #aaffbb 22% 39.8%,
+                        white 39.8% 42.9%,
+                        orange 42.9% 95%,
+                        #aabbff 95%
+                    )
+                    text;
             }
         }
         & footer {

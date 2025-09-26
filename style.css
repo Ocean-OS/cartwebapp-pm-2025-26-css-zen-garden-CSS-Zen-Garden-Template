@@ -212,19 +212,34 @@ html {
         }
         /** selector originally from https://stackoverflow.com/a/53469166 */
         &
-            *:not(a):not(b):not(label):not(form):not(abbr):not(legend):not(
-                address
-            ):not(link):not(area):not(mark):not(audio):not(meter):not(b):not(
-                cite
-            ):not(optgroup):not(code):not(option):not(del):not(q):not(
-                details
-            ):not(small):not(dfn):not(select):not(command):not(source):not(
-                datalist
-            ):not(span):not(em):not(strong):not(font):not(sub):not(i):not(
-                summary
-            ):not(iframe):not(sup):not(img):not(tbody):not(input):not(td):not(
-                ins
-            ):not(time):not(kbd):not(var) {
+            *:not(
+                :is(
+                        a,
+                        b,
+                        abbr,
+                        legend,
+                        address,
+                        link,
+                        mark,
+                        cite,
+                        del,
+                        q,
+                        small,
+                        dfn,
+                        command,
+                        source,
+                        datalist,
+                        span,
+                        em,
+                        strong,
+                        sub,
+                        i,
+                        sup,
+                        tbody,
+                        td,
+
+                    )
+            ) {
             animation: shift 1.5s ease forwards;
         }
         &[id]::before {
@@ -396,6 +411,67 @@ html {
                         #aabbff 98%
                     )
                     text;
+            }
+            &.main.supporting {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 8%,
+                            #aaffbb 8% 16.5%,
+                            white 16.5% 17.8%,
+                            orange 17.8% 46%,
+                            #aabbff 46% 47%,
+                            #aaffbb 47% 51%,
+                            white 51% 52.5%,
+                            orange 52.5% 79%,
+                            #aabbff 79% 80.5%,
+                            #aaffbb 80.5% 87%,
+                            white 87% 88.5%,
+                            orange 88.5% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & > .explanation {
+                    &::before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 8%,
+                                #aaffbb 8% 16.5%,
+                                white 16.5% 17.8%,
+                                orange 17.8% 39%,
+                                #aabbff 39% 41%,
+                                #aaffbb 41% 44%,
+                                white 44% 46%,
+                                orange 46% 74%,
+                                #aabbff 74% 75%,
+                                #aaffbb 75% 82%,
+                                white 82% 84%,
+                                orange 84% 98%,
+                                #aabbff 98%
+                            )
+                            text;
+                    }
+                    & ~ .participation::before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 8%,
+                                #aaffbb 8% 15.2%,
+                                white 15.2% 17.2%,
+                                orange 17.2% 40%,
+                                #aabbff 40% 41%,
+                                #aaffbb 41% 44.5%,
+                                white 44.5% 46%,
+                                orange 46% 75%,
+                                #aabbff 75% 76%,
+                                #aaffbb 76% 83%,
+                                white 83% 84.5%,
+                                orange 84.5% 98%,
+                                #aabbff 98%
+                            )
+                            text;
+                    }
+                }
             }
             &:not([class][id][role])::before {
                 content: '<div>';

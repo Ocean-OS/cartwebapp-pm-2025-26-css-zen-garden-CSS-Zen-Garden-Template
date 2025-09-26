@@ -360,38 +360,6 @@ html {
                         )
                         text;
                 }
-                & a {
-                    &:first-of-type:before {
-                        background: linear-gradient(
-                                to right,
-                                #aabbff 3%,
-                                #aaffbb 3% 8.2%,
-                                white 8.2% 9.5%,
-                                orange 9.5% 30%,
-                                #aabbff 30% 31%,
-                                #aaffbb 31% 37%,
-                                white 37% 38%,
-                                orange 38% 98.9%,
-                                #aabbff 98.9%
-                            )
-                            text;
-                    }
-                    &:last-of-type:before {
-                        background: linear-gradient(
-                                to right,
-                                #aabbff 3%,
-                                #aaffbb 3% 8.2%,
-                                white 8.2% 9.5%,
-                                orange 9.5% 33%,
-                                #aabbff 33% 34%,
-                                #aaffbb 34% 40.3%,
-                                white 40.3% 41.6%,
-                                orange 41.6% 98.9%,
-                                #aabbff 98.9%
-                            )
-                            text;
-                    }
-                }
             }
             &#zen-preamble::before {
                 background: linear-gradient(
@@ -686,6 +654,36 @@ html {
                         white 11% 12.9%,
                         orange 12.9% 98%,
                         #aabbff 98%
+                    )
+                    text;
+            }
+            &[href='/examples/style.css']:before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 3%,
+                        #aaffbb 3% 8.2%,
+                        white 8.2% 9.5%,
+                        orange 9.5% 33%,
+                        #aabbff 33% 34%,
+                        #aaffbb 34% 40.3%,
+                        white 40.3% 41.6%,
+                        orange 41.6% 98.9%,
+                        #aabbff 98.9%
+                    )
+                    text;
+            }
+            &[href='/examples/index']:before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 3%,
+                        #aaffbb 3% 8.2%,
+                        white 8.2% 9.5%,
+                        orange 9.5% 30%,
+                        #aabbff 30% 31%,
+                        #aaffbb 31% 37%,
+                        white 37% 38%,
+                        orange 38% 98.9%,
+                        #aabbff 98.9%
                     )
                     text;
             }

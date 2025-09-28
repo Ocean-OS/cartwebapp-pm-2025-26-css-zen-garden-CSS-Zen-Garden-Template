@@ -43,7 +43,7 @@ html {
         content: '</html>';
     }
     & > :first-child {
-        animation: head 5s ease forwards;
+        animation: head 5s ease forwards, shift 1.5s ease forwards;
         display: block;
         margin-top: 0;
         margin-bottom: 0;
@@ -196,12 +196,13 @@ html {
         }
     }
     & > :last-child {
+        animation: shift 1.5s ease forwards;
         background: black;
         color: white;
         &:not([id])::before {
             content: '<body>';
         } /** selector originally from https://stackoverflow.com/a/53469166 */
-        &*:not(:is(a, b, abbr, link, del, span, em, strong, sub, i)) {
+        & *:not(:is(a, b, abbr, link, del, span, em, strong, sub, i)) {
             animation: shift 1.5s ease forwards;
         }
         &[id]::before {

@@ -844,11 +844,17 @@ html {
             }
         }
         & footer {
+            display: block;
+            & * {
+                animation: shift 1.5s ease forwards;
+            }
             &::before {
-                content: '<footer>';
+                content: '<footer>\A';
+                white-space: pre;
             }
             &::after {
-                content: '</footer>';
+                content: '\A</footer>';
+                white-space: pre;
             }
         }
     }

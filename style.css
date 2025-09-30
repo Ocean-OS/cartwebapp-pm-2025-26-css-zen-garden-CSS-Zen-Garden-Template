@@ -22,6 +22,13 @@
     background: white;
     color: black;
 }
+a:focus {
+    background: white !important;
+    color: black !important;
+    &::first-letter {
+        color: blue !important;
+    }
+}
 html {
     & title::first-line {
         font-weight: 600 !important;
@@ -226,6 +233,15 @@ html {
             }
             &[role]::before {
                 content: '<p role="' attr(role) '">' !important;
+                background: linear-gradient(
+                        to right,
+                        #aabbff 8% 10%,
+                        #aaffbb 10% 31%,
+                        white 31% 36%,
+                        orange 36% 95%,
+                        #aabbff 95%
+                    )
+                    text;
             }
             &::after {
                 content: '</p>';

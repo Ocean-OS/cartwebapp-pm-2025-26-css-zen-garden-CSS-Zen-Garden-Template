@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 :root {
-    font-family: 'Geist Mono', monospace;
+    font-family: 'Wingdings', 'Geist Mono', monospace;
 }
 ::-webkit-scrollbar {
     background-color: #000a;
@@ -487,11 +487,11 @@ html {
             &:not([class][id][role])::before {
                 content: '<div>';
             }
-            &[class][id]:not([role])::before {
-                content: '<div class="' attr(class) '" id="' attr(id) '">' !important;
-            }
             &[class]:not([role][id])::before {
                 content: '<div class="' attr(class) '">' !important;
+            }
+            &[class][id]:not([role])::before {
+                content: '<div class="' attr(class) '" id="' attr(id) '">' !important;
             }
             &[class][role]:not([id])::before {
                 content: '<div class="' attr(class) '" role="' attr(role) '">' !important;
@@ -616,6 +616,9 @@ html {
             }
         }
         & h2 {
+            & > abbr {
+                content: 'HTML';
+            }
             &::before {
                 content: '<h2>';
             }
@@ -785,6 +788,17 @@ html {
                     )
                     text;
             }
+            li.next > &::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 10%,
+                        #aaffbb 10% 33%,
+                        white 33% 38%,
+                        orange 38% 95%,
+                        #aabbff 95%
+                    )
+                    text;
+            }
             &:not([href][title][class])::before {
                 content: '<a>';
             }
@@ -857,6 +871,47 @@ html {
                         #aabbff 95%
                     )
                     text;
+            }
+            & > div.wrapper {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 20%,
+                            #aaffbb 20% 48%,
+                            white 48% 52%,
+                            orange 52% 95%,
+                            #aabbff 95%
+                        )
+                        text;
+                }
+                & .design-selection {
+                    &::before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 10%,
+                                #aaffbb 10% 19%,
+                                white 19% 21%,
+                                orange 21% 56%,
+                                #aabbff 56% 58%,
+                                #aaffbb 58% 61.5%,
+                                white 61.5% 63.1%,
+                                orange 63.1% 98%,
+                                #aabbff 98%
+                            )
+                            text;
+                    }
+                    & .select::before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 20%,
+                                #aaffbb 20% 48%,
+                                white 48% 52%,
+                                orange 52% 95%,
+                                #aabbff 95%
+                            )
+                            text;
+                    }
+                }
             }
         }
         & footer {

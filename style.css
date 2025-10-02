@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 :root {
-    font-family: 'Wingdings', 'Geist Mono', monospace;
+    font-family: 'Geist Mono', monospace;
 }
 ::-webkit-scrollbar {
     background-color: #000a;
@@ -29,7 +29,28 @@ a:focus {
         color: blue !important;
     }
 }
+@keyframes marquee {
+    from {
+        transform: translateX(0.1%) scale(0.95);
+        filter: none;
+    }
+    to {
+        transform: translateX(-0.1%);
+        filter: blur(2px) hue-rotate(180deg);
+    }
+}
 html {
+    /* animation: intro 3s ease; */
+    /* background: black radial-gradient(
+            color-mix(
+                    in oklch,
+                     oklch(92% 0 0),
+                    transparent 50%
+                )
+                15%,
+             oklch(27% 0 0) 16%
+        ); */
+    background: black;
     & title::first-line {
         font-weight: 600 !important;
     }
@@ -204,8 +225,9 @@ html {
     }
     & > :last-child {
         animation: shift 1.5s ease forwards;
-        background: black;
+        /* background: black; */
         color: white;
+
         &:not([id])::before {
             content: '<body>';
         } /** selector originally from https://stackoverflow.com/a/53469166 */
@@ -299,11 +321,15 @@ html {
                 &::before {
                     background: linear-gradient(
                             to right,
-                            #aabbff 15%,
-                            #aaffbb 15% 37%,
-                            white 37% 41%,
-                            orange 41% 96%,
-                            #aabbff 96%
+                            #aabbff 8%,
+                            #aaffbb 8% 22%,
+                            white 22% 24%,
+                            orange 24% 54%,
+                            #aabbff 54% 56%,
+                            #aaffbb 56% 63.5%,
+                            white 63.5% 65.8%,
+                            orange 65.8% 98%,
+                            #aabbff 98%
                         )
                         text;
                 }
@@ -323,11 +349,15 @@ html {
                 &::before {
                     background: linear-gradient(
                             to right,
-                            #aabbff 15%,
-                            #aaffbb 15% 35%,
-                            white 35% 38.5%,
-                            orange 38.5% 96%,
-                            #aabbff 96%
+                            #aabbff 8%,
+                            #aaffbb 8% 20%,
+                            white 20% 22%,
+                            orange 22% 56%,
+                            #aabbff 56% 58%,
+                            #aaffbb 58% 62%,
+                            white 62% 64%,
+                            orange 64% 98%,
+                            #aabbff 98%
                         )
                         text;
                 }
@@ -478,6 +508,36 @@ html {
                                     white 82.6% 84.5%,
                                     orange 84.5% 98%,
                                     #aabbff 98%
+                                )
+                                text;
+                        }
+                        & > :nth-last-child(1) > :nth-child(4)::before {
+                            background: linear-gradient(
+                                    to right,
+                                    #aabbff 2%,
+                                    #aaffbb 2% 6.5%,
+                                    white 6.5% 7.5%,
+                                    orange 7.5% 49%,
+                                    #aabbff 49% 49.5%,
+                                    #aaffbb 49.5% 54.2%,
+                                    white 54.2% 55.2%,
+                                    orange 55.2% 99%,
+                                    #aabbff 99%
+                                )
+                                text;
+                        }
+                        & > :nth-child(2) > :nth-child(3)::before {
+                            background: linear-gradient(
+                                    to right,
+                                    #aabbff 2%,
+                                    #aaffbb 2% 7%,
+                                    white 7% 8%,
+                                    orange 8% 56%,
+                                    #aabbff 56% 56.5%,
+                                    #aaffbb 56.5% 61.8%,
+                                    white 61.8% 62.8%,
+                                    orange 62.8% 99%,
+                                    #aabbff 99%
                                 )
                                 text;
                         }

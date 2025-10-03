@@ -3,11 +3,11 @@
     font-family: 'Geist Mono', monospace;
 }
 ::-webkit-scrollbar {
-    background-color: #000a;
+    background-color: #000;
     border-left: 0.05rem #444 solid;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #222;
+    background-color: #333;
     border-radius: 0.2rem;
     border-left: 0.05rem #444 solid;
 }
@@ -39,18 +39,51 @@ a:focus {
         filter: blur(2px) hue-rotate(180deg);
     }
 }
+@property --pulse {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 50%;
+}
+@keyframes pulse {
+    0% {
+        --pulse: 20%;
+    }
+    10% {
+        --pulse: 25%;
+    }
+    20% {
+        --pulse: 30%;
+    }
+    30% {
+        --pulse: 35%;
+    }
+    40% {
+        --pulse: 40%;
+    }
+    50% {
+        --pulse: 45%;
+    }
+    60% {
+        --pulse: 50%;
+    }
+    70% {
+        --pulse: 55%;
+    }
+    80% {
+        --pulse: 60%;
+    }
+    90% {
+        --pulse: 65%;
+    }
+    100% {
+        --pulse: 70%;
+    }
+}
 html {
-    /* animation: intro 3s ease; */
-    /* background: black radial-gradient(
-            color-mix(
-                    in oklch,
-                     oklch(92% 0 0),
-                    transparent 50%
-                )
-                15%,
-             oklch(27% 0 0) 16%
-        ); */
-    background: black;
+    animation: pulse 5s ease infinite alternate-reverse;
+    background: radial-gradient(transparent 0.07em, black 0) repeat fixed 0% 0% /
+            15px 15px,
+        radial-gradient(#557 calc(var(--pulse) / 2), #446 var(--pulse), black) fixed 0% 0% / cover;
     & title::first-line {
         font-weight: 600 !important;
     }
@@ -62,8 +95,8 @@ html {
                 #aabbff 35%,
                 #aaffbb 35% 62%,
                 white 62% 70%,
-                orange 70% 95%,
-                #aabbff 95%
+                orange 70% 94%,
+                #aabbff 94%
             )
             text;
     }
@@ -225,9 +258,7 @@ html {
     }
     & > :last-child {
         animation: shift 1.5s ease forwards;
-        /* background: black; */
         color: white;
-
         &:not([id])::before {
             content: '<body>';
         } /** selector originally from https://stackoverflow.com/a/53469166 */
@@ -676,9 +707,6 @@ html {
             }
         }
         & h2 {
-            & > abbr {
-                content: 'HTML';
-            }
             &::before {
                 content: '<h2>';
             }
@@ -687,6 +715,10 @@ html {
             }
         }
         & abbr {
+            &:not(a > &),
+            &:not(a > &):is(::before, ::after) {
+                text-decoration-style: dotted !important;
+            }
             &[title^='Cascading'][title$='Sheets']::before {
                 background: linear-gradient(
                         to right,
@@ -995,7 +1027,6 @@ html {
     animation: color 5s ease forwards;
     font-style: normal;
     font-weight: normal;
-    text-decoration: none !important;
     cursor: text;
     font-size: 1rem;
     background: #aabbff;
@@ -1053,7 +1084,7 @@ abbr {
     color: white !important;
     text-decoration-color: transparent;
     transition: text-decoration-color 0.3s ease;
-    &:hover {
+    &:not(a > abbr):hover {
         text-decoration-color: white;
     }
     &:active {

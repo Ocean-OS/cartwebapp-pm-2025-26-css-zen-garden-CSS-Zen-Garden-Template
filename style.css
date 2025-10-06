@@ -81,9 +81,11 @@ a:focus {
 }
 html {
     animation: pulse 5s ease infinite alternate-reverse;
-    background: radial-gradient(transparent 0.07em, black 0) repeat fixed 0% 0% /
+    background: radial-gradient(transparent 0.05em, black 0) repeat fixed 0% 0% /
             15px 15px,
-        radial-gradient(#557 calc(var(--pulse) / 2), #446 var(--pulse), black) fixed 0% 0% / cover;
+        radial-gradient(#446 calc(var(--pulse) / 2), #335 var(--pulse), black)
+            fixed 0% 0% / cover,
+        black;
     & title::first-line {
         font-weight: 600 !important;
     }
@@ -284,17 +286,52 @@ html {
             &:not([role])::before {
                 content: '<p>';
             }
-            &[role]::before {
-                content: '<p role="' attr(role) '">' !important;
-                background: linear-gradient(
-                        to right,
-                        #aabbff 8% 10%,
-                        #aaffbb 10% 31%,
-                        white 31% 36%,
-                        orange 36% 95%,
-                        #aabbff 95%
-                    )
-                    text;
+            &[role] {
+                &::before {
+                    content: '<p role="' attr(role) '">' !important;
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 8% 10%,
+                            #aaffbb 10% 31%,
+                            white 31% 36%,
+                            orange 36% 95%,
+                            #aabbff 95%
+                        )
+                        text;
+                }
+                & > :first-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 8%,
+                            #aaffbb 8% 19.8%,
+                            white 19.8% 22%,
+                            orange 22% 97%,
+                            #aabbff 97%
+                        )
+                        text;
+                }
+                & > :nth-child(2)::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 8%,
+                            #aaffbb 8% 18.8%,
+                            white 18.8% 21.5%,
+                            orange 21.5% 97%,
+                            #aabbff 97%
+                        )
+                        text;
+                }
+                & > :last-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 4%,
+                            #aaffbb 4% 9.5%,
+                            white 9.5% 11%,
+                            orange 11% 98.5%,
+                            #aabbff 98.5%
+                        )
+                        text;
+                }
             }
             &::after {
                 content: '</p>';
@@ -839,16 +876,35 @@ html {
                     )
                     text;
             }
-            &[href$='guidelines/']::before {
-                background: linear-gradient(
-                        to right,
-                        #aabbff 4%,
-                        #aaffbb 4% 11%,
-                        white 11% 12.9%,
-                        orange 12.9% 98%,
-                        #aabbff 98%
-                    )
-                    text;
+            &[href$='guidelines/'] {
+                &::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 4%,
+                            #aaffbb 4% 11%,
+                            white 11% 12.9%,
+                            orange 12.9% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & ~ a {
+                    &::before {
+                        background: linear-gradient(
+                                to right,
+                                #aabbff 2%,
+                                #aaffbb 2% 6.2%,
+                                white 6.2% 7.4%,
+                                orange 7.4% 53%,
+                                #aabbff 53% 54%,
+                                #aaffbb 54% 58.5%,
+                                white 58.5% 59.5%,
+                                orange 59.5% 99%,
+                                #aabbff 99%
+                            )
+                            text;
+                    }
+                }
             }
             &[href='/examples/style.css']:before {
                 background: linear-gradient(
@@ -1086,6 +1142,15 @@ abbr {
     transition: text-decoration-color 0.3s ease;
     &:not(a > abbr):hover {
         text-decoration-color: white;
+    }
+    &:is(a, a > abbr)::before,
+    &:is(a, a > abbr)::after {
+        cursor: pointer;
+    }
+    &:is(:not(a) > abbr)::before,
+    &:is(:not(a) > abbr)::after,
+    &:is(:not(a) > abbr) {
+        cursor: help;
     }
     &:active {
         text-decoration-color: #5577ff !important;

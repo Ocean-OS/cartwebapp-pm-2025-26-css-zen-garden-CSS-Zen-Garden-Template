@@ -639,6 +639,68 @@ html {
             &::after {
                 content: '</ul>';
             }
+            :is(.design-selection > nav > &) {
+                & > li:first-child > a:last-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 5%,
+                            #aaffbb 5% 12.1%,
+                            white 12.1% 13.8%,
+                            orange 13.8% 60%,
+                            #aabbff 60% 61%,
+                            #aaffbb 61% 70.4%,
+                            white 70.4% 71.7%,
+                            orange 71.7% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & > li:nth-child(2) > a:last-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 5%,
+                            #aaffbb 5% 13%,
+                            white 13% 14.3%,
+                            orange 14.3% 58%,
+                            #aabbff 58% 60%,
+                            #aaffbb 60% 69%,
+                            white 69% 71%,
+                            orange 71% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & > li:nth-child(3) > a:last-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 5%,
+                            #aaffbb 5% 12%,
+                            white 12% 14%,
+                            orange 14% 62%,
+                            #aabbff 62% 63%,
+                            #aaffbb 63% 71.5%,
+                            white 71.5% 73.2%,
+                            orange 73.2% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+                & > li:nth-child(4) > a:last-child::before {
+                    background: linear-gradient(
+                            to right,
+                            #aabbff 5%,
+                            #aaffbb 5% 13%,
+                            white 13% 14.3%,
+                            orange 14.3% 60%,
+                            #aabbff 60% 60.2%,
+                            #aaffbb 60.2% 69.3%,
+                            white 69.3% 71.2%,
+                            orange 71.2% 98%,
+                            #aabbff 98%
+                        )
+                        text;
+                }
+            }
         }
         & li {
             list-style-type: none;
@@ -1074,6 +1136,101 @@ html {
             &::after {
                 content: '\A</footer>';
                 white-space: pre;
+            }
+            & > :first-child::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 2%,
+                        #aaffbb 2% 5.9%,
+                        white 5.9% 6.8%,
+                        orange 6.8% 39%,
+                        #aabbff 39% 39.5%,
+                        #aaffbb 39.5% 43.9%,
+                        white 43.9% 44.8%,
+                        orange 44.8% 77.5%,
+                        #aabbff 77.5% 78%,
+                        #aaffbb 78% 82.5%,
+                        white 82.5% 83.5%,
+                        orange 83.5% 99%,
+                        #aabbff 99%
+                    )
+                    text;
+            }
+            & > :nth-child(2)::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 2%,
+                        #aaffbb 2% 5.3%,
+                        white 5.3% 6.3%,
+                        orange 6.3% 44.5%,
+                        #aabbff 44.5% 45%,
+                        #aaffbb 45% 49.3%,
+                        white 49.3% 50%,
+                        orange 50% 80%,
+                        #aabbff 80% 80.5%,
+                        #aaffbb 80.5% 84.5%,
+                        white 84.5% 85.5%,
+                        orange 85.5% 99%,
+                        #aabbff 99%
+                    )
+                    text;
+            }
+            & > :nth-child(3)::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 1.2%,
+                        #aaffbb 1.2% 4%,
+                        white 4% 4.6%,
+                        orange 4.6% 34.5%,
+                        #aabbff 34.5% 34.53%,
+                        #aaffbb 34.53% 37.3%,
+                        white 37.3% 38%,
+                        orange 38% 87.8%,
+                        #aabbff 87.8% 88%,
+                        #aaffbb 88% 91.4%,
+                        white 91.4% 92%,
+                        orange 92% 99.5%,
+                        #aabbff 99.5%
+                    )
+                    text;
+            }
+            & > :nth-last-child(2)::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 2%,
+                        #aaffbb 2% 5.5%,
+                        white 5.5% 6.3%,
+                        orange 6.3% 38.8%,
+                        #aabbff 38.8% 39%,
+                        #aaffbb 39% 43.6%,
+                        white 43.6% 44.4%,
+                        orange 44.4% 78.5%,
+                        #aabbff 78.5% 79.5%,
+                        #aaffbb 79.5% 83.4%,
+                        white 83.4% 84.2%,
+                        orange 84.2% 99%,
+                        #aabbff 99%
+                    )
+                    text;
+            }
+            & > :last-child::before {
+                background: linear-gradient(
+                        to right,
+                        #aabbff 2%,
+                        #aaffbb 2% 6.5%,
+                        white 6.5% 7.3%,
+                        orange 7.3% 51%,
+                        #aabbff 51% 51.8%,
+                        #aaffbb 51.8% 56.6%,
+                        white 56.6% 57.4%,
+                        orange 57.4% 81.3%,
+                        #aabbff 81.3% 81.5%,
+                        #aaffbb 83.5% 87%,
+                        white 87% 88.2%,
+                        orange 88.2% 99%,
+                        #aabbff 99%
+                    )
+                    text;
             }
         }
     }
